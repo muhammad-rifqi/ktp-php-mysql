@@ -39,8 +39,6 @@ if(!empty($_SESSION['foto']) AND empty($_SESSION['ttd'])){
       console.log('Font loaded');
     });
 
-
-
 		function _(x){return document.getElementById(x);}
 		var demo_card_1 = new Image(); demo_card_1.src = "images/ktp.jpeg";
     var demo_card_2 = new Image(); demo_card_2.src = "images/<?php echo $img;?>";
@@ -71,7 +69,7 @@ if(!empty($_SESSION['foto']) AND empty($_SESSION['ttd'])){
       var name16 = _("kabupaten").value;
       var full_provinsi = "PROVINSI "+name15.toUpperCase() ;
       var full_kabupaten = " KOTA "+name16.toUpperCase() ;
-      var wilayah = full_kabupaten.toUpperCase() ;
+      var wilayah = name16.toUpperCase() ;
       var name17 = day+"-"+month+"-"+year;
 			if(name1 == "" || name2 == "" || name3 == "" || name4 == "" || name5 == "" || name6 == "" || name7 == "" || name8 == "" || name9 == "" || name10 == "" || name11 == "" || name12 == "" || name13 == "" || name14 == "" || name15 == "" || name16 == ""){
 				alert("Please fill in both fields");
@@ -87,9 +85,11 @@ if(!empty($_SESSION['foto']) AND empty($_SESSION['ttd'])){
 			ctx.fillText(name1, 100, 75, 150); //left  , top , ukuran font
       ctx.font = "14px Arial";
 			ctx.fillText(name2, 122, 102, 150);
+			ctx.font = "14px Arial";
       ctx.fillText(name3, 122, 116, 150);
       ctx.fillText(name4, 122, 131, 150);
       ctx.drawImage(demo_card_2,350, 60, 140, 150);
+      ctx.font = "14px Arial";
       ctx.fillText(name5, 122, 144, 150);
       ctx.fillText(name6, 119, 160, 150);
       ctx.fillText(name7, 120, 174, 150);
@@ -100,15 +100,19 @@ if(!empty($_SESSION['foto']) AND empty($_SESSION['ttd'])){
       ctx.fillText(name12, 120, 250, 150);
       ctx.fillText(name13, 120, 265, 150);
       ctx.fillText(name14, 330, 131, 150);
+       ctx.font = "14px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText(name17, 425, 243, 150);
+      ctx.font = "14px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText(wilayah, 425, 230, 150);
       ctx.font = 'bold 16px Arial';
-      ctx.fillText(full_provinsi, 145, 25, 250);
+      ctx.textAlign = "center";
+      ctx.fillText(full_provinsi, 250, 25, 250);
       ctx.font = 'bold 16px Arial';
-      ctx.fillText(full_kabupaten, 141, 45, 250);
+      ctx.textAlign = "center";
+      ctx.fillText(full_kabupaten, 250, 45, 250);
       ctx.drawImage(demo_card_3,400, 250, 50, 50);
-      ctx.font = "14px Arial";
-      ctx.fillText(name17, 390, 243, 150);
-      ctx.font = "14px Arial";
-      ctx.fillText(wilayah, 350, 230, 150);
 		}
 
     function save(){
@@ -120,7 +124,7 @@ if(!empty($_SESSION['foto']) AND empty($_SESSION['ttd'])){
       a.download = rand+".png";
       a.click();
       document.body.removeChild(a);
-       //console.log(rand);
+      window.location.href="https://brightnerd.site/ktponline/selesai.php";
 
       // let image = document.querySelector("#card_canvas");
       // let canva = image.toDataURL()
@@ -317,5 +321,6 @@ if(!empty($_SESSION['foto']) AND empty($_SESSION['ttd'])){
     <script src="assets/js/vendor/holder.min.js"></script>
   </body>
 </html>
+
 
 
